@@ -1,0 +1,87 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Packaging;
+use App\Http\Requests\StorePackagingRequest;
+use App\Http\Requests\UpdatePackagingRequest;
+use Illuminate\Database\Eloquent\Collection;
+
+class PackagingController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     */
+    public function index():Collection
+    {
+        return Packaging::all();
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(StorePackagingRequest $request)
+    {   
+        $request->validate([
+           
+        ]);
+
+        $packaging = Packaging::create([
+            'link' => $request->input('Ссылка'),
+            'is_deleted' => $request->input('ПометкаУдаления'),
+            'owner_id' => $request->input('Владелец'),
+            'name' => $request->input('ПометкаУдаления'),
+            'height' => $request->input('ПометкаУдаления'),
+            'depth' => $request->input('ПометкаУдаления'),
+            'unit_of_measure_id' => $request->input('ПометкаУдаления'),
+            'weight' => $request->input('ПометкаУдаления'),
+            'net_weight' => $request->input('ПометкаУдаления'),
+            'volume' => $request->input('ПометкаУдаления'),
+            'width' => $request->input('ПометкаУдаления'),
+            'coefficient' => $request->input('ПометкаУдаления'),
+            'owner_set' => $request->input('ПометкаУдаления'),
+        ]);
+
+        return response()->json($packaging, 201);
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(Packaging $packaging)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Packaging $packaging)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(UpdatePackagingRequest $request, Packaging $packaging)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Packaging $packaging)
+    {
+        //
+    }
+}
